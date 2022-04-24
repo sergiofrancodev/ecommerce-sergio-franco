@@ -1,0 +1,381 @@
+/*Variables de colores*/
+:root{
+    --bg-main: #f7f7f8;
+    --bg-secondary: #019267;
+    --color-green2: #00C897;
+    --color-orange: #FFD365;
+    --color-yellow: #FDFFA9;
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+}
+/*Estilos univiersales*/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+/*Estilos del html*/
+html{
+    background-color: var(--bg-main);
+}
+/*Estilos de titulos H1*/
+h1{
+    font-size: 32px;
+    font-weight: 700;
+
+}
+/*Estilos del header, logo, menu, icons. Se utiliza con grid 2 columnas*/
+.header{
+    display: grid;
+    width: 100%;
+    height: 4rem;
+    grid-template-columns: 50% 50%;
+    grid-auto-rows: minmax(4rem,auto);
+    position: fixed;
+}
+/*Estilo del area de la columna 1, donde se encuentra el logo y el titulo de la web */
+.logo-area{
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    gap: 4%;
+    padding-left: 7%;
+}
+/*Estilo del logo > img de la columna 1 del header*/
+.logo-area>img{
+    width: 36px;
+    height: 36px;
+    
+}
+/*Estilo del titulo a lado del logo, se encuentra en la columan 1 del header*/
+.title{
+    font-size: 14px;
+    font-weight: 600;
+    
+}
+/*Estilos de los iconos del menu, este se encuentra en la columa 2 del header*/
+.menu-icons{
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+align-items: center;
+gap: 1.5rem;
+margin-right: 5%;
+}
+
+
+/*Estilo unico orientado a acomodar el icono del menu hamburguesa*/
+#icon-bas{
+    margin-left: -2.25rem;
+}
+/*Estilos unicos de los ul del menu hamburguesa en mobile*/
+input#menu-hamburguesa ~ ul{
+    background-color: var(--bg-main);
+    list-style: none;
+    position: absolute;
+    width: 100%;
+    height:100vh;
+    left: 100%;
+    top:4rem;
+    transition: all 300ms linear;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: 600;
+    font-size: 18px;
+
+}
+/*Estilo unico que oculta el checkbox del menu hamburguesa*/
+input#menu-hamburguesa{
+    visibility: hidden;
+}
+/*Estillo unico para mostrar el menu hamburguesa al dar clic en el icono*/
+input#menu-hamburguesa:checked~ul{
+    left: 0;
+}
+.menu-web{
+    list-style: none;
+    visibility: hidden;
+}
+.menu-web > li{
+    display: inline-block;
+}
+/*Estilo para el main container con grid, esta optimizado para ser responsivo*/
+.main-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(50%, 50%), 1fr)); 
+    gap: 1rem;
+}
+/*Estilos para la seccion de informacion del producto del home (titulo, descripcion, precio y botones) con flexbox*/
+.home-product{
+    background-color: var(--color-green2);
+    height: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: 35%;
+}
+/*Estilo para el titulo de la informacion del producto en el home*/
+.producto-info-home{
+margin-left: 5%;
+margin-right: 5%;
+padding-top: 5%;
+}
+/*Estilo para la descripcion de la informacion del producto en el home*/
+.description-product-home{
+    color: var(--color-grey);
+    font-size: 14px;
+    font-weight: 500;
+}
+/*Estilo para el precio, en la informacion del producto en el home*/
+.price-home{
+    color: var(--bg-secondary);
+    font-weight: 600;
+    font-size: 20px;
+}
+/*Estilo para los botones de la informacion del producto en el home*/
+.buttons-home{
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 10%;
+}
+/*Estilo para el boton 1 (descubir) del producto en el home*/
+.descubre{
+    background-color: rgb(195, 195, 195);
+    padding: 4%;
+}
+/*Estilo para el boton 2 (add-cart) del producto en el home*/
+.add-cart{
+    background-color: rgb(38, 38, 38);
+    padding: 5%;
+    box-shadow: 0px 10px 20px rgba(55, 55, 55, 0.379);
+}
+/*Estilo para modificar el anchor del boton 1*/
+.descubre > a{
+    text-decoration: none;
+    color: var(--color-black);
+    font-weight: 600;
+    font-size: 14px;
+}
+/*Estilo para modificar el anchor del boton 2*/
+.add-cart > a{
+    text-decoration: none;
+    color: var(--color-white);
+    font-weight: 600;
+    font-size: 14px;
+}
+.category-products{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    row-gap: 2rem;
+    width: 90%;
+    margin: auto;
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+}
+.c1{
+    border-right: 1px solid rgb(131, 131, 131);
+    width: 100%;
+}
+.c1 > ul{
+    list-style: none;
+    text-align: center;
+    padding-right: 1rem;
+    
+}
+.c1 > ul > li{
+    line-height: 1.6rem;
+    
+}
+.c1 > ul > li > a{
+    text-decoration: none;
+    font-size: 12px;
+    color: hsl(0deg 0% 35%);
+    font-weight: 400;
+
+}
+.title-products{
+    color: hsl(0deg 0% 35%);
+    font-size: 17px;
+    font-weight: 600;
+}
+.sb{
+    width: 100%;
+}
+.sb > ul{
+    list-style: none;
+    text-align: center;
+    padding-right: 1rem;
+    
+}
+.sb > ul > li{
+    line-height: 1.6rem;
+    
+}
+.sb > ul > li > a{
+    text-decoration: none;
+    font-size: 12px;
+    color: hsl(0deg 0% 35%);
+    font-weight: 500;
+
+}
+.main-cactus{
+    display: grid;
+    grid-template-columns: 300px;
+    gap: 2rem;
+justify-content: center;
+}
+.cactus{
+
+    background-color: rgb(233, 233, 233);
+    border-radius: 10px;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 1.5rem;
+    line-height: 2.5;    
+}
+.descript-card{
+    background-color: #FFFFFF;
+    margin: 1px;
+    width: 300px;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
+    padding: 1.5rem;
+    text-align: center;
+}
+.boton-agregar{
+    width: 70%;
+    height:3rem;
+    margin-top: 1rem;
+    color: #f7f7f8;
+    font-family:'Montserrat', sans-serif; ;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    background-color: rgb(38, 38, 38);
+    padding: 5%;
+    box-shadow: 0px 10px 20px rgba(55, 55, 55, 0.379);
+}
+.boton-agregar:hover{
+    background-color: var(--color-green2);
+    color: #FFFFFF;
+}
+.disponibles{
+    background-color: var(--bg-secondary);
+    color: #FFFFFF;
+    padding: 0.5rem;
+}
+.categoria{
+    background-color: var(--color-yellow);
+    padding: 0.5rem;
+}
+.precio-producto{
+    font-size: 28px;
+    font-weight: 600;
+    color: #FFFFFF;
+    background-color: var(--bg-secondary);
+    border-radius: 50%;
+    width: 75px;
+    margin: auto;
+    margin-top: -4rem;
+    margin-left: 13rem;
+}
+.carritoDiv  {
+background-color: transparent;
+background-repeat: no-repeat;
+border: none;
+cursor: pointer;
+overflow: hidden;
+outline: none;
+
+}
+.cactusEnCarrito{
+   position: absolute;
+   width: 100%;
+   height:100vh;
+   left: 100%;
+   top:0;
+   overflow-y: scroll;
+   background-color: rgb(245, 245, 245);
+   z-index: 999999999;
+   box-shadow: -2px 0 4px hsl(0deg 0% 15% / 10%);
+
+   padding-bottom: 15rem;
+   
+}
+
+.carrito-compras{
+    background-color: rgb(225, 225, 225);
+    height: 2.5rem;
+    width: 100%;
+    display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  box-shadow: 1px 1px 2px rgba(55, 55, 55, 0.379);
+
+}
+.cerrarb{
+    margin-right: 1rem;
+}
+.titulo-carrito{
+text-align: center;
+margin-top: 1rem;
+font-size: 24px;
+font-weight: 600;
+}
+
+.productoEnCarrito{
+    background-color: rgb(238, 238, 238);
+}
+
+.productoEnCarrito{
+margin-top: 1rem;
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+gap:1rem;
+justify-content: center;
+align-items: center;
+text-align: center;
+padding: 1rem;
+}
+.img-cart > img{
+    width: 90%;
+}
+.nombre-cart{
+    font-size: 14px;
+    color: var(--bg-secondary);
+    font-weight: 600;
+
+    
+}
+.precio-cart{
+    
+    font-size: 16px;
+    font-weight: 600;
+
+}
+.eliminar-del-carrito{
+background-color: transparent;
+background-repeat: no-repeat;
+border: none;
+cursor: pointer;
+overflow: hidden;
+outline: none;
+}
+.cantidad-cart{
+    font-size: 16px;
+    font-weight: 600;
+    
+}
+.vaciar-carrito{}
+
+
+   

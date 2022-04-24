@@ -1,0 +1,162 @@
+@media screen and (min-width:715px) {
+    .header{
+        height: 4rem;
+        grid-auto-rows: minmax(4rem, auto);
+    }
+    .title{
+        font-size: 16px;
+    }
+    .logo-area{
+        gap: 3%;
+        padding-left: 5%;
+    }
+    .menu-web{
+        list-style: none;
+        visibility:visible;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 2rem;
+        margin-left: 3rem;
+    }
+    .menu-web > li{
+        display: inline-block;
+        
+    }
+    .menu-web > li > a{
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        color: hsl(0, 0%, 20%);
+    }
+    .main-container{
+        gap: 0;
+        grid-template-columns: 60% 40%;
+    }
+    .menu-icons{
+        gap: 1rem;
+        margin-right:0;
+        }
+    #icon-bas{
+
+            margin-left: 0;
+        }
+    .home-product{
+        height: 27rem;
+        order: 2;
+        margin-left: 0;
+    }
+    .home-product >img{
+        width: 100%;
+    }
+    .producto-info-home{
+    margin-top: 19%;
+}
+.buttons-home{ 
+    margin-top: 10%;
+}
+label{
+    display: none;
+}
+.category-products{
+    grid-template-columns: repeat(4, 1fr);
+   
+}
+.category-products{
+    width: 95%;
+    
+}
+.main-cactus{
+    
+    grid-template-columns: repeat(2, 300px);
+    
+}
+    .cactusEnCarrito{
+       width: 40%;
+       margin-left: 60%;
+       background-color: rgb(255, 255, 255);
+       padding-left: 1rem;
+       padding-right: 1rem;
+       
+    }
+    .carrito-compras{
+        background-color: rgb(255, 255, 255);
+        box-shadow:none;
+    }
+    .cerrarb{
+        margin-right: 1rem;
+        margin-top: 2rem;
+    }
+    
+    
+    .productoEnCarrito{
+        background-color: rgb(243, 243, 243);
+    }
+
+    .cactusEnCarrito{
+        width: 60%;
+        margin-left: 40%;
+        background-color: rgb(255, 255, 255);
+        padding-left: 5%;
+        padding-right: 5%;
+        
+     }
+    
+    
+   
+
+}
+@media screen and (min-width:1000px) {
+    h1{
+        font-size: 36px;
+        font-weight: 700;
+    }
+    .header{
+        height: 5rem;
+        grid-auto-rows: minmax(5rem, auto);    }
+    .logo-area{
+        padding-left: 15%;
+    }
+    .menu-icons{
+        gap: 0.8rem;
+        margin-right: 10%;
+        }
+    .main-container{
+        grid-template-columns: 55% 45%;
+        width: 90%;
+        margin: auto;
+    }
+    .home-product{
+        height: 40rem;
+        order: 2;
+        margin-left: 0;
+    }
+    .home-product >img{
+        width: 100%;
+    }
+    .producto-info-home{
+        margin-top: 23%;
+        padding: 5%;
+        padding-right: 10%;
+}
+.description-product-home{
+    color: rgb(90, 90, 90);
+    font-size: 16px;
+    font-weight: 500;
+}
+.buttons-home{
+    margin-top: 15%;
+}
+.descubre{
+    padding: 3%;
+}
+.add-cart{
+    padding: 4%;
+}
+.main-cactus{
+    
+    grid-template-columns: repeat(3, 300px);
+    
+}
+
+}
