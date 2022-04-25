@@ -239,6 +239,20 @@ footer > div > ul > li > a{
     height: 30px;
     
 }
+.count-cart{
+    
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 9px;
+    width: 13px;
+    height: 13px;
+    top:   1.2rem;
+    right: calc(5% + 1.05rem);
+   
+    
+}
 
 
 }

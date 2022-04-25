@@ -3,8 +3,9 @@ let ventanaCarrito = document.getElementById('carritoDiv');
 let ventanaCarrito1 = document.getElementById('carritoDiv1');
 let clicBoton = document.getElementById('ventanaCarrito');
 let contenedorCarrito = document.getElementById('contenedorCarrito');
-let contadorCarrito = document.getElementById('contadorCarrito');
 
+let contadorCarrito = document.getElementById('count-cart');
+let precioTotal = document.getElementById('precioTotal');
 
 
 
@@ -54,12 +55,14 @@ stockCactus.forEach((cactus) => {
 let addCart = (prodId) => {
 
     let existe = carrito.some(prod => prod.id === prodId)
+
     if (existe) {
 
        carrito.map(prod => {
-
+        
             if (prod.id === prodId) {
                 prod.cantidad++
+                contadorCarrito.innerText = prod.cantidad;
             }
         })
     } else {
@@ -68,10 +71,13 @@ let addCart = (prodId) => {
         carrito.push(item)
         
     }
-    actualizarCarrito()
     
 
+    actualizarCarrito()
+    
+    
 
+    
 }
 
 
@@ -82,9 +88,9 @@ let eliminarDelCarrito = (prodId) => {
     carrito.splice(indice, 1)
 
     actualizarCarrito()
+    contadorCarrito.innerText = carrito.length;
+
 }
-
-
 
 clic = 0;
 
@@ -123,14 +129,16 @@ let actualizarCarrito = () => {
         <div class="cantidad-cart">${prod.cantidad}</div>
         <div class="precio-cart">$${prod.precio}</div>
         <button onclick ="eliminarDelCarrito(${prod.id})" class="eliminar-del-carrito"> <img src="/assets/icons/trash.svg" alt=""></button></button>
+    
         `
+
 
         contenedorCarrito.appendChild(div)
 
     })
 
-    
-        
+    precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.precio, 0)
+   
     
 }
     
