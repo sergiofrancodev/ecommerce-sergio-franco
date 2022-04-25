@@ -448,6 +448,13 @@ input#menu-hamburguesa:checked~ul {
     font-weight: 600;
 
 }
+.carritoVacio{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
 .precio{
     display:flex;
     flex-direction: row;

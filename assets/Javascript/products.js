@@ -3,25 +3,10 @@ let ventanaCarrito = document.getElementById('carritoDiv');
 let ventanaCarrito1 = document.getElementById('carritoDiv1');
 let clicBoton = document.getElementById('ventanaCarrito');
 let contenedorCarrito = document.getElementById('contenedorCarrito');
-
 let contadorCarrito = document.getElementById('count-cart');
 let precioTotal = document.getElementById('precioTotal');
 
-
-
-/* En este arreglo se van agregando los articulos que se añaden al carrito*/
 let carrito = [];
-
-document.addEventListener('DOMContentLoaded', () => {
-    if (localStorage.getItem('carrito')) {
-        carrito = JSON.parse(localStorage.getItem('carrito'))
-        actualizarCarrito()
-    }
-})
-
-/* En este codigo buscamos dentro del arreglo de objetos los articulos que se mostraran en la pagina*/
-
-
 
 stockCactus.forEach((cactus) => {
     let cardsC = document.createElement('div');
@@ -37,10 +22,8 @@ stockCactus.forEach((cactus) => {
     <button id="Agregar${cactus.id}" class="boton-agregar"> Añadir al carrito </button></div>
     </div>
     `
-    /* se agrega un div hijo del codigo anterior*/
     productosCactus.appendChild(cardsC)
 
-    /* Con este codigo hacemos que el boton de añadir al carrito */
 
     let boton = document.getElementById(`Agregar${cactus.id}`)
 
@@ -58,37 +41,31 @@ let addCart = (prodId) => {
 
     if (existe) {
 
-       carrito.map(prod => {
-        
+        let prod = carrito.map(prod => {
+
             if (prod.id === prodId) {
                 prod.cantidad++
-                contadorCarrito.innerText = prod.cantidad;
             }
         })
     } else {
 
         let item = stockCactus.find((prod) => prod.id === prodId)
         carrito.push(item)
-        
+
     }
-    
+
 
     actualizarCarrito()
-    
-    
-
-    
 }
 
 
 let eliminarDelCarrito = (prodId) => {
 
-    let item = carrito.find((prod) => prod.id === prodId)
+    let item = carrito.find((prod) => prod.id === prodId, 0)
     let indice = carrito.indexOf(item)
     carrito.splice(indice, 1)
 
     actualizarCarrito()
-    contadorCarrito.innerText = carrito.length;
 
 }
 
@@ -132,14 +109,34 @@ let actualizarCarrito = () => {
     
         `
 
-
+        console.log(contadorCarrito);
         contenedorCarrito.appendChild(div)
+        carritoVacio()
 
     })
 
+    contadorCarrito.innerText = carrito.reduce((acc, prod) => acc + prod.cantidad, 0);
+
     precioTotal.innerText = "$" + carrito.reduce((acc, prod) => acc + prod.cantidad * prod.precio, 0)
-    console.log(precioTotal);
-   
-    
+
+
+
 }
-    
+
+let carritoVacio = () => {
+    carritoVacio.innerHTML = "";
+
+    if (Object.keys(carrito).length === 0) {
+        carritoVacio.innerHTML = `
+        <div class="carritoVsacio">
+            <img src="/assets/images/empty-cart.png" alt="">
+
+            <h2>Su carrito esta vacio</h2>
+            <br>
+            <p>Añada productos a su carrito para poder realizar una compra</p>
+        </div>
+        `
+        return
+    }
+
+}
